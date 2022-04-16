@@ -8,16 +8,23 @@ public class PlayerGroundedState : AbstractPlayerState
     {
         base.Enter(context);
         context.inputInfo.jumpPressedEvent += Jump;
+        context.inputInfo.LMBPressedEvent += SwingAxe;
     }
 
     public override void Exit()
     {
         context.inputInfo.jumpPressedEvent -= Jump;
+        context.inputInfo.LMBPressedEvent -= SwingAxe;
     }
 
     public void Jump()
     {
         context.rb.velocity += new Vector3(0, 5, 0);
+    }
+
+    public void SwingAxe()
+    {
+        context.ChangeState(new PlayerAxeSwingState());
     }
 
     public override void UpdateState()
