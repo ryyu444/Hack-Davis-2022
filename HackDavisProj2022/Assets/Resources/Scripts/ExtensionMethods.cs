@@ -19,4 +19,14 @@ public static class ExtensionMethods
         rot.eulerAngles = new Vector3(0,rot.eulerAngles.y, rot.eulerAngles.z);
         return rot;
     }
+
+    public static void MoveWithRotation(this Rigidbody target, Quaternion rotation, Vector2 movementVector, float speed)
+    {
+        Vector3 moveVec = (
+            rotation.NoXAxis() *
+            movementVector.normalized.ToXZPlane() *
+            speed);
+
+        target.velocity = new Vector3(moveVec.x, target.velocity.y, moveVec.z);
+    }
 }

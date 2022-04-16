@@ -16,6 +16,8 @@ public class ThirdPersonCameraController : MonoBehaviour
     private Vector2 mouseDelta => inputInfo.mouseDelta;
     public float hRotation { get; private set; }
     public float vRotation { get; private set; }
+
+    public Quaternion rotation { get { return Quaternion.Euler(vRotation, hRotation,0); } }
     public bool HasLockTarget { get { return lockTarget != null; } }
 
     //FPCamera components
