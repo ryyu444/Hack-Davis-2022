@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerPrimaryActionState: AbstractPlayerState
 {
-    private float timer = 2;
+    private float timer = 0;
     private float delay = 0;
     public override void Enter(PlayerController context)
     {
@@ -14,11 +14,13 @@ public class PlayerPrimaryActionState: AbstractPlayerState
         //timers
         if(context.isLumberjack)
         {
-            delay = 0.85f;
+            delay = 0.88f;
+            timer = 2f;
         }
         else
         {
-            delay = 2f;
+            delay = 1f;
+            timer = 1.5f;
         }
     }
 
@@ -58,7 +60,13 @@ public class PlayerPrimaryActionState: AbstractPlayerState
             if (hit.gameObject.CompareTag("TreeStump"))
             {
                 TimeManager.instance.SlowTime(0, 0.1f);
-                hit.gameObject.GetComponent<PassThroughEvent>().PassThrough(context.gameObject);
+                var treeScript = hit.gameObject.GetComponentInParent<TreeScript>();
+                if(treeScript != null && treeScript.Chopped)
+                {
+                    //Enter minigame
+                    context.growthTarget = treeScript;
+                    context.ChangeState(new SpiritGrowState());                   
+                }
             }
         }
     }
@@ -75,8 +83,8 @@ public class PlayerPrimaryActionState: AbstractPlayerState
         {
             if (hit.gameObject.CompareTag("TreeTrunk"))
             {
-                TimeManager.instance.SlowTime(0, 0.1f);
-                hit.gameObject.GetComponent<PassThroughEvent>().PassThrough(context.gameObject);
+                TimeManager.instance.SlowTime(0.25f, 0.15f);
+                hit.gameObject.GetComponentInParent<TreeScript>().TrunkCollision(context.gameObject);
             }
         }
     }

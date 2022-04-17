@@ -14,6 +14,9 @@ public class PlayerController : MonoBehaviour
     public Animator spiritController;
     public Animator lumberJackController;
     public bool isLumberjack = true;
+
+    [HideInInspector]
+    public TreeScript growthTarget;
     public Animator animator
     {
         get
