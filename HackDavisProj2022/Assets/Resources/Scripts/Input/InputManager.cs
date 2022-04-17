@@ -22,11 +22,11 @@ public class InputManager : MonoBehaviour
         {
             inputInfo.jumpPressedEvent?.Invoke();
         }
-        if(Input.GetMouseButton(0) && !EventSystem.current.IsPointerOverGameObject())
+        if(Input.GetMouseButton(0) && (EventSystem.current == null || !EventSystem.current.IsPointerOverGameObject()))
         {
             inputInfo.LMBPressedEvent?.Invoke();
         }
-        if (Input.GetMouseButton(1) && !EventSystem.current.IsPointerOverGameObject())
+        if (Input.GetMouseButton(1) && (EventSystem.current == null || !EventSystem.current.IsPointerOverGameObject()))
         {
             inputInfo.RMBPressedEvent?.Invoke();
         }
