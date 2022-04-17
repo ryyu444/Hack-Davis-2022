@@ -4,6 +4,9 @@ ModelImporter:
   serializedVersion: 21202
   internalIDToNameTable:
   - first:
+      74: -5025487861805838091
+    second: Armature|Fall
+  - first:
       74: -1333036630025559074
     second: Armature|Heal
   - first:
