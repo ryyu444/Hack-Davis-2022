@@ -1974,6 +1974,7 @@ MonoBehaviour:
   spiritController: {fileID: 487643951180516306}
   lumberJackController: {fileID: 1635720590094318035}
   isLumberjack: 1
+  growthTarget: {fileID: 0}
   groundedMask:
     serializedVersion: 2
     m_Bits: 512

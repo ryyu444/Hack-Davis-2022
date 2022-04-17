@@ -4913,7 +4913,7 @@ GameObject:
   - component: {fileID: 1164103399212900313}
   m_Layer: 8
   m_Name: StumpCollider
-  m_TagString: Untagged
+  m_TagString: TreeStump
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5051,7 +5051,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1251336983440292678}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -5146,7 +5146,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6a24a4ae5fd988f418c5a78b30ace2eb, type: 2}
+  - {fileID: 2100000, guid: 0e24004400e4ab44a8230865e97637d6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5181,7 +5181,6 @@ GameObject:
   - component: {fileID: 1327128073895721707}
   - component: {fileID: 4836962551871439413}
   - component: {fileID: 4836962551871439434}
-  - component: {fileID: 4836962551871439435}
   m_Layer: 8
   m_Name: Main
   m_TagString: TreeTrunk
@@ -5286,33 +5285,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2534964839176971238, guid: d8236ac6cb7af1b4dafa68d2323cc9aa, type: 3}
---- !u!114 &4836962551871439435
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4836962551871439412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25f196166a8841d4d9034285e4abc89b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnCollision:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7727794443832589894}
-        m_TargetAssemblyTypeName: TreeScript, Assembly-CSharp
-        m_MethodName: TrunkCollision
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &6394168769645971192
 GameObject:
   m_ObjectHideFlags: 0
@@ -5362,7 +5334,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6394168769645971192}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -5374,7 +5346,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ebc678f6eddf161418049064d871c888, type: 2}
+  - {fileID: 2100000, guid: ae99ce5303248fb46a3173e0069a967e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5458,7 +5430,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a53ebf34c9f69f547bd1daafb1e6e024, type: 2}
+  - {fileID: 2100000, guid: 55448b6adc3a15440b9f1edd3a5b7879, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5534,3 +5506,9 @@ MonoBehaviour:
   cutSegments:
   - {fileID: 1164103398442816874}
   - {fileID: 1164103400086671467}
+  toRegrow:
+  - {fileID: 6242994870825516840}
+  - {fileID: 1327128073895721707}
+  - {fileID: 2480491885106069461}
+  startChopped: 0
+  chopped: 0
