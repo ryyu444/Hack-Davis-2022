@@ -9,8 +9,14 @@ public class SpiritGrowState : AbstractPlayerState
     {
         base.Enter(context);
         //Create Minigame context
-        SceneManager.LoadSceneAsync(2,LoadSceneMode.Additive);
+        context.StartCoroutine(SceneLoad());
         context.rb.constraints = RigidbodyConstraints.FreezeAll;
+    }
+
+    IEnumerator SceneLoad()
+    {
+        yield return new WaitForSeconds(1.5f);
+        SceneManager.LoadSceneAsync(2, LoadSceneMode.Additive);
     }
 
     public override void Exit()

@@ -65,6 +65,7 @@ public class PlayerPrimaryActionState: AbstractPlayerState
                 var treeScript = hit.gameObject.GetComponentInParent<TreeScript>();
                 if(treeScript != null && treeScript.Chopped)
                 {
+                    context.wandParticles.Play();
                     //Enter minigame
                     context.growthTarget = treeScript;
                     context.ChangeState(new SpiritGrowState());                   

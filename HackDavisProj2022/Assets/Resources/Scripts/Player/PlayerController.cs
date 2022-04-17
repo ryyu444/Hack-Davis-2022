@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     public Rigidbody rb;
     public GameObject modelContainer;
 
+    public ParticleSystem wandParticles;
+
     public Animator spiritController;
     public Animator lumberJackController;
     public bool isLumberjack = true;
