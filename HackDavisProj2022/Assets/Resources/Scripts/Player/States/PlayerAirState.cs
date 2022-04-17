@@ -19,7 +19,7 @@ public class PlayerAirState : AbstractPlayerState
         context.rb.MoveWithRotation(context.cameraController.rotation, context.inputInfo.movementVector, 10f);
         context.animator.SetBool("Moving", context.rb.velocity.RemoveY().magnitude > 0.2f);
         if (context.animator.GetBool("Moving"))
-            context.animator.transform.RotateTowardsVelocity(context.rb, 4 * Time.deltaTime, true, 90f);
+            context.modelContainer.transform.RotateTowardsVelocity(context.rb, 6 * Time.deltaTime, true, 90f);
         if (context.IsGrounded())
         {
             context.ChangeState(new PlayerGroundedState());

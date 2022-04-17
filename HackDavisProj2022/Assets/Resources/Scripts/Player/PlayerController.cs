@@ -7,7 +7,9 @@ public class PlayerController : MonoBehaviour
     public InputInfo inputInfo;
     public ThirdPersonCameraController cameraController;
     public SphereCollider groundedCollider;
+    public BoxCollider actionCollider;
     public Rigidbody rb;
+    public GameObject modelContainer;
 
     public Animator spiritController;
     public Animator lumberJackController;
