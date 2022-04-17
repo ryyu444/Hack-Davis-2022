@@ -10,10 +10,13 @@ public class Dialogue3 : MonoBehaviour
 
     public TextMeshProUGUI textComponent;
     public string[] lines;
+    public Color[] colors;
     public int nextScene;
     public float textSpeed;
     private int index;
     public float textDelay;
+
+    public int autoPlayCount;
 
     private void Awake()
     {
@@ -23,35 +26,53 @@ public class Dialogue3 : MonoBehaviour
     void Start()
     {
         textComponent.text = string.Empty;
-        StartDialogue();
+        frameGuard = true;
+        Invoke("StartDialogue", 5f);
     }
 
     public void StartDialogue() {
         index = 0;
-        StartCoroutine(TypeLine());
+        frameGuard = false;
+        currentLineShowTHingIwhgot = StartCoroutine(TypeLine());
     }
 
+    private Coroutine currentLineShowTHingIwhgot;
+    bool endTransition = false;
     IEnumerator TypeLine() {
+        frameGuard = false;
+        int queueIndex = index;
+        endTransition = queueIndex == lines.Length - 1;
+        textComponent.text = "";
+        textComponent.color = colors[queueIndex];
         foreach (char c in lines[index].ToCharArray()) {
             textComponent.text += c;
             yield return new WaitForSeconds(textSpeed);
         }
-        if(index == lines.Length - 1)
+        if (autoPlayCount > 0)
+        {
+            autoPlayCount--;
+            yield return new WaitForSeconds(textDelay);
+            NextLine();
+        }
+        if(queueIndex == lines.Length - 1)
         {
             yield return new WaitForSeconds(4f);
             BlackFadeThingScriptLOL.instance.FadeTransition(false);
             yield return new WaitForSeconds(4.5f);
-            SceneManager.LoadSceneAsync(nextScene);
+            SceneManager.LoadScene(nextScene);
         }
     }
+
+    private bool frameGuard = false;
+
     public void NextLine() {
-        if (index < lines.Length - 1) {
+        if (index < lines.Length - 1 && !endTransition && !frameGuard) {
+            frameGuard = true;
             index++;
             textComponent.text = string.Empty;
-            StartCoroutine(TypeLine());
-        }
-        else {
-            gameObject.SetActive(false);
+            if (currentLineShowTHingIwhgot != null)
+                StopCoroutine(currentLineShowTHingIwhgot);
+            currentLineShowTHingIwhgot = StartCoroutine(TypeLine());
         }
     }
 }

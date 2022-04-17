@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Fade : MonoBehaviour
 {
     public GameObject square;
+    public GameObject textObject;
 
     // Start is called before the first frame update
     
@@ -32,6 +33,7 @@ public class Fade : MonoBehaviour
 
                 objcolor = new Color(objcolor.r, objcolor.g, objcolor.b, amount);
                 square.GetComponent<Image>().color = objcolor;
+                textObject.SetActive(true);
                 yield return null;
             }
         } else

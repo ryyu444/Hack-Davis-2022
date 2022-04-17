@@ -5,7 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public void PlayGame() {
+
+    public void PlayGame()
+    {
+        BlackFadeThingScriptLOL.instance.FadeTransition(false);
+        Invoke("PlayGameButCooler", 4f);
+    }
+    public void PlayGameButCooler() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 

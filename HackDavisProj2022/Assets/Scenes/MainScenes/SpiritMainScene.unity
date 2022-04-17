@@ -213,6 +213,206 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2946501281957127623, guid: 804c4601b0d18d14fb9310867d714eaf, type: 3}
+      propertyPath: nextScene
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946501281957127623, guid: 804c4601b0d18d14fb9310867d714eaf, type: 3}
+      propertyPath: textDelay
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946501281957127623, guid: 804c4601b0d18d14fb9310867d714eaf, type: 3}
+      propertyPath: autoPlayCount
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946501281957127623, guid: 804c4601b0d18d14fb9310867d714eaf, type: 3}
+      propertyPath: lines.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946501281957127623, guid: 804c4601b0d18d14fb9310867d714eaf, type: 3}
+      propertyPath: colors.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946501281957127623, guid: 804c4601b0d18d14fb9310867d714eaf, type: 3}
+      propertyPath: lines.Array.data[0]
+      value: Where am I
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946501281957127623, guid: 804c4601b0d18d14fb9310867d714eaf, type: 3}
+      propertyPath: lines.Array.data[1]
+      value: You are a spirit summoned from your slumber
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946501281957127623, guid: 804c4601b0d18d14fb9310867d714eaf, type: 3}
+      propertyPath: lines.Array.data[2]
+      value: I have bound you to repair what you hath destroyed in life
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946501281957127623, guid: 804c4601b0d18d14fb9310867d714eaf, type: 3}
+      propertyPath: lines.Array.data[3]
+      value: How am I going to do that
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946501281957127623, guid: 804c4601b0d18d14fb9310867d714eaf, type: 3}
+      propertyPath: lines.Array.data[4]
+      value: LMB to resonate with the tree and piece together its spirit shards
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946501281957127623, guid: 804c4601b0d18d14fb9310867d714eaf, type: 3}
+      propertyPath: lines.Array.data[5]
+      value: How will I do this when each stump takes forever to restore
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946501281957127623, guid: 804c4601b0d18d14fb9310867d714eaf, type: 3}
+      propertyPath: lines.Array.data[6]
+      value: Such is the cost of your actions
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946501281957127623, guid: 804c4601b0d18d14fb9310867d714eaf, type: 3}
+      propertyPath: lines.Array.data[7]
+      value: Nature does not forgive
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946501281957127623, guid: 804c4601b0d18d14fb9310867d714eaf, type: 3}
+      propertyPath: lines.Array.data[8]
+      value: Now work, until your spirit is weary and worthless
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946501281957127623, guid: 804c4601b0d18d14fb9310867d714eaf, type: 3}
+      propertyPath: colors.Array.data[0].a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946501281957127623, guid: 804c4601b0d18d14fb9310867d714eaf, type: 3}
+      propertyPath: colors.Array.data[0].b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946501281957127623, guid: 804c4601b0d18d14fb9310867d714eaf, type: 3}
+      propertyPath: colors.Array.data[0].g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946501281957127623, guid: 804c4601b0d18d14fb9310867d714eaf, type: 3}
+      propertyPath: colors.Array.data[0].r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946501281957127623, guid: 804c4601b0d18d14fb9310867d714eaf, type: 3}
+      propertyPath: colors.Array.data[1].a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946501281957127623, guid: 804c4601b0d18d14fb9310867d714eaf, type: 3}
+      propertyPath: colors.Array.data[1].b
+      value: 0.37209442
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946501281957127623, guid: 804c4601b0d18d14fb9310867d714eaf, type: 3}
+      propertyPath: colors.Array.data[1].g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946501281957127623, guid: 804c4601b0d18d14fb9310867d714eaf, type: 3}
+      propertyPath: colors.Array.data[1].r
+      value: 0.15723264
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946501281957127623, guid: 804c4601b0d18d14fb9310867d714eaf, type: 3}
+      propertyPath: colors.Array.data[2].a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946501281957127623, guid: 804c4601b0d18d14fb9310867d714eaf, type: 3}
+      propertyPath: colors.Array.data[2].b
+      value: 0.37209442
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946501281957127623, guid: 804c4601b0d18d14fb9310867d714eaf, type: 3}
+      propertyPath: colors.Array.data[2].g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946501281957127623, guid: 804c4601b0d18d14fb9310867d714eaf, type: 3}
+      propertyPath: colors.Array.data[2].r
+      value: 0.15723264
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946501281957127623, guid: 804c4601b0d18d14fb9310867d714eaf, type: 3}
+      propertyPath: colors.Array.data[3].a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946501281957127623, guid: 804c4601b0d18d14fb9310867d714eaf, type: 3}
+      propertyPath: colors.Array.data[3].b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946501281957127623, guid: 804c4601b0d18d14fb9310867d714eaf, type: 3}
+      propertyPath: colors.Array.data[3].g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946501281957127623, guid: 804c4601b0d18d14fb9310867d714eaf, type: 3}
+      propertyPath: colors.Array.data[3].r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946501281957127623, guid: 804c4601b0d18d14fb9310867d714eaf, type: 3}
+      propertyPath: colors.Array.data[4].a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946501281957127623, guid: 804c4601b0d18d14fb9310867d714eaf, type: 3}
+      propertyPath: colors.Array.data[4].b
+      value: 0.37254903
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946501281957127623, guid: 804c4601b0d18d14fb9310867d714eaf, type: 3}
+      propertyPath: colors.Array.data[4].g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946501281957127623, guid: 804c4601b0d18d14fb9310867d714eaf, type: 3}
+      propertyPath: colors.Array.data[4].r
+      value: 0.15686275
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946501281957127623, guid: 804c4601b0d18d14fb9310867d714eaf, type: 3}
+      propertyPath: colors.Array.data[5].a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946501281957127623, guid: 804c4601b0d18d14fb9310867d714eaf, type: 3}
+      propertyPath: colors.Array.data[5].b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946501281957127623, guid: 804c4601b0d18d14fb9310867d714eaf, type: 3}
+      propertyPath: colors.Array.data[5].g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946501281957127623, guid: 804c4601b0d18d14fb9310867d714eaf, type: 3}
+      propertyPath: colors.Array.data[5].r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946501281957127623, guid: 804c4601b0d18d14fb9310867d714eaf, type: 3}
+      propertyPath: colors.Array.data[6].a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946501281957127623, guid: 804c4601b0d18d14fb9310867d714eaf, type: 3}
+      propertyPath: colors.Array.data[6].b
+      value: 0.37254903
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946501281957127623, guid: 804c4601b0d18d14fb9310867d714eaf, type: 3}
+      propertyPath: colors.Array.data[6].g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946501281957127623, guid: 804c4601b0d18d14fb9310867d714eaf, type: 3}
+      propertyPath: colors.Array.data[6].r
+      value: 0.15686275
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946501281957127623, guid: 804c4601b0d18d14fb9310867d714eaf, type: 3}
+      propertyPath: colors.Array.data[7].a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946501281957127623, guid: 804c4601b0d18d14fb9310867d714eaf, type: 3}
+      propertyPath: colors.Array.data[7].b
+      value: 0.37254903
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946501281957127623, guid: 804c4601b0d18d14fb9310867d714eaf, type: 3}
+      propertyPath: colors.Array.data[7].g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946501281957127623, guid: 804c4601b0d18d14fb9310867d714eaf, type: 3}
+      propertyPath: colors.Array.data[7].r
+      value: 0.15686275
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946501281957127623, guid: 804c4601b0d18d14fb9310867d714eaf, type: 3}
+      propertyPath: colors.Array.data[8].a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946501281957127623, guid: 804c4601b0d18d14fb9310867d714eaf, type: 3}
+      propertyPath: colors.Array.data[8].b
+      value: 0.37254903
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946501281957127623, guid: 804c4601b0d18d14fb9310867d714eaf, type: 3}
+      propertyPath: colors.Array.data[8].g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946501281957127623, guid: 804c4601b0d18d14fb9310867d714eaf, type: 3}
+      propertyPath: colors.Array.data[8].r
+      value: 0.15686275
+      objectReference: {fileID: 0}
     - target: {fileID: 8011128182093788611, guid: 804c4601b0d18d14fb9310867d714eaf, type: 3}
       propertyPath: m_Name
       value: IngameCanvas
