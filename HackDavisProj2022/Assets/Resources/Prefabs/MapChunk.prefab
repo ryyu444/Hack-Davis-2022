@@ -117,3 +117,4 @@ MonoBehaviour:
   quadSize: 4
   colorAmpl: 1.25
   noiseSettings: {fileID: 11400000, guid: 4919373e0f8808f4a80f982e648affcd, type: 2}
+  itemGenSettings: {fileID: 11400000, guid: 61769eaac6a899f4d98dfcd0baa66424, type: 2}

@@ -73,6 +73,7 @@ public class PlayerPrimaryActionState: AbstractPlayerState
 
     private void LumberjackAction()
     {
+        context.rb.velocity = Vector3.zero;
         var hits = Physics.OverlapBox(
             context.actionCollider.bounds.center,
             context.actionCollider.bounds.extents,

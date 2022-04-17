@@ -157,6 +157,8 @@ MonoBehaviour:
   renderDistance: 2
   tracked: {fileID: 820625508}
   mapChunkPrefab: {fileID: 947232449051638840, guid: d47f6234884811c418b7fed81c2187f2, type: 3}
+  itemSpawn: {fileID: 11400000, guid: 61769eaac6a899f4d98dfcd0baa66424, type: 2}
+  genData: {fileID: 11400000, guid: 4919373e0f8808f4a80f982e648affcd, type: 2}
 --- !u!4 &55153792
 Transform:
   m_ObjectHideFlags: 0

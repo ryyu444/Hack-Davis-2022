@@ -17,7 +17,7 @@ public class MapGen : MonoBehaviour
     public float colorAmpl;
 
     public NoiseOctaveScriptableObject noiseSettings;
-
+    public ItemGenScriptableObject itemGenSettings;
 
     private float CalculateNoise(Vector2 pos)
     {
@@ -31,14 +31,30 @@ public class MapGen : MonoBehaviour
         return result;
     }
 
+    private List<GameObject> CheckForItemGen(Vector3 position)
+    {
+        var list = new List<GameObject>();
+        float seed = Random.Range(0, 1000);
+        foreach(var v in itemGenSettings.itemGenData)
+        {
+            if(seed >= v.range.x && seed <= v.range.y)
+            {
+                list.Add(Instantiate(v.item, position + v.offset, Quaternion.identity));
+            }
+        }
+        return list;
+    }
+
     [ContextMenu("MakePlane")]
     public void GenerateTesselatedPlane()
     {
         GenerateTesselatedPlane(Vector3.zero);
     }
 
-    public void GenerateTesselatedPlane(Vector3 position)
+    public List<GameObject> GenerateTesselatedPlane(Vector3 position, bool genItems = false)
     {
+        var generatedItems = new List<GameObject>();
+
         var plane = new Mesh();
 
         int vSize = (width + 1) * (height + 1);
@@ -61,6 +77,7 @@ public class MapGen : MonoBehaviour
                 clrs[z * (width + 1) + x] = new Color(colorAmpl * r/255, colorAmpl * g / 255, colorAmpl * b / 255);
                 verts[z * (width + 1) + x] = basePos;
                 uvs[z * (width + 1) + x] = new Vector2(x / width, z / height);
+                generatedItems.AddRange(CheckForItemGen(basePos));
             }
         }
         plane.vertices = verts;
@@ -87,6 +104,7 @@ public class MapGen : MonoBehaviour
         plane.RecalculateTangents();
         floorMesh.mesh = plane;
         UpdateCollider();
+        return generatedItems;
     }
 
     [ContextMenu("Clear")]

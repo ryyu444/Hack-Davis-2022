@@ -5463,7 +5463,7 @@ GameObject:
   - component: {fileID: 7727794443832589895}
   - component: {fileID: 7727794443832589894}
   m_Layer: 8
-  m_Name: Tree
+  m_Name: TreeStump
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5510,5 +5510,5 @@ MonoBehaviour:
   - {fileID: 6242994870825516840}
   - {fileID: 1327128073895721707}
   - {fileID: 2480491885106069461}
-  startChopped: 0
+  startChopped: 1
   chopped: 0

@@ -89,7 +89,7 @@ Material:
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _EdgeHeight: 17.45
+    - _EdgeHeight: 100000
     - _EnvironmentReflections: 1
     - _Force: 0.01
     - _GlossMapScale: 0

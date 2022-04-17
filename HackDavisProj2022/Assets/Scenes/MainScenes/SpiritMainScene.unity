@@ -157,6 +157,8 @@ MonoBehaviour:
   renderDistance: 2
   tracked: {fileID: 820625508}
   mapChunkPrefab: {fileID: 947232449051638840, guid: d47f6234884811c418b7fed81c2187f2, type: 3}
+  itemSpawn: {fileID: 11400000, guid: 43ee0becde600d748a47414428a5c9a6, type: 2}
+  genData: {fileID: 11400000, guid: 4919373e0f8808f4a80f982e648affcd, type: 2}
 --- !u!4 &55153792
 Transform:
   m_ObjectHideFlags: 0
@@ -396,6 +398,17 @@ PrefabInstance:
       objectReference: {fileID: 1790534663}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08f29af3f11654744a067dcbd56f2ccf, type: 3}
+--- !u!114 &2851636549313437268 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7040184291465073556, guid: 08f29af3f11654744a067dcbd56f2ccf, type: 3}
+  m_PrefabInstance: {fileID: 2851636549313437267}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820625508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c45e936115807944c85e1d08661e3822, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3043322143437207600
 GameObject:
   m_ObjectHideFlags: 0
@@ -405,6 +418,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 226309136222792603}
+  - component: {fileID: 3043322143437207601}
   m_Layer: 0
   m_Name: BaseSystem
   m_TagString: Untagged
@@ -412,6 +426,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &3043322143437207601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3043322143437207600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc4b8f98c23417547acfdc2df7be4eed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 2851636549313437268}
 --- !u!1001 &8284208149879694026
 PrefabInstance:
   m_ObjectHideFlags: 0
