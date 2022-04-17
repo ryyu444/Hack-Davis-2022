@@ -75,6 +75,7 @@ public class TreeScript : MonoBehaviour
         if (ChangeCutState(chopState,dir))
         {
             treesCut++;
+            Dialogue3.instance.NextLine();
             //Release da treeeeee
             source.PlayOneShot(chopSFX);
             StartCoroutine(Corout_SnapSFX());
@@ -95,6 +96,7 @@ public class TreeScript : MonoBehaviour
         foreach (var v in toRegrow)
             v.gameObject.SetActive(true);
         treesHealed++;
+        Dialogue3.instance.NextLine();
         source.PlayOneShot(regrowSFX);
         StartCoroutine(Corout_Regrow());
     }

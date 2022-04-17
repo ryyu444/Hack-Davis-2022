@@ -2,15 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Dialogue3 : MonoBehaviour
 {
+    public static Dialogue3 instance;
+
     public TextMeshProUGUI textComponent;
     public string[] lines;
+    public int nextScene;
     public float textSpeed;
     private int index;
     public float textDelay;
 
+    private void Awake()
+    {
+        instance = this;
+    }
 
     void Start()
     {
@@ -18,7 +26,7 @@ public class Dialogue3 : MonoBehaviour
         StartDialogue();
     }
 
-    void StartDialogue() {
+    public void StartDialogue() {
         index = 0;
         StartCoroutine(TypeLine());
     }
@@ -28,10 +36,15 @@ public class Dialogue3 : MonoBehaviour
             textComponent.text += c;
             yield return new WaitForSeconds(textSpeed);
         }
-        yield return new WaitForSeconds(textDelay);
-        NextLine();
+        if(index == lines.Length - 1)
+        {
+            yield return new WaitForSeconds(4f);
+            BlackFadeThingScriptLOL.instance.FadeTransition(false);
+            yield return new WaitForSeconds(4.5f);
+            SceneManager.LoadSceneAsync(nextScene);
+        }
     }
-    void NextLine() {
+    public void NextLine() {
         if (index < lines.Length - 1) {
             index++;
             textComponent.text = string.Empty;
