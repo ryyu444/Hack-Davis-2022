@@ -9,25 +9,13 @@ public class Dialogue3 : MonoBehaviour
     public string[] lines;
     public float textSpeed;
     private int index;
+    public float textDelay;
 
 
     void Start()
     {
         textComponent.text = string.Empty;
         StartDialogue();
-    }
-
-    void Update()
-    {
-        if (Input.GetMouseButtonDown(0)) {
-            if (textComponent.text == lines[index]) {
-                NextLine();
-            }
-            else {
-                StopAllCoroutines();
-                textComponent.text = lines[index];
-            }
-        }
     }
 
     void StartDialogue() {
@@ -40,6 +28,8 @@ public class Dialogue3 : MonoBehaviour
             textComponent.text += c;
             yield return new WaitForSeconds(textSpeed);
         }
+        yield return new WaitForSeconds(textDelay);
+        NextLine();
     }
     void NextLine() {
         if (index < lines.Length - 1) {
