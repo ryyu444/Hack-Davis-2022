@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
 
     private BlockType GetBlockTypeByValue(int value) => _types.First(t => t.Value == value);
 
+    public System.Action OnWinEvent;
+
     void Start(){
       ChangeState(GameState.GenerateLevel);
     }
@@ -200,7 +202,10 @@ public class GameManager : MonoBehaviour
       return _nodes.FirstOrDefault(n=> n.Pos == pos);
     }
 
-
+    private void OnDestroy()
+    {
+        OnWinEvent?.Invoke();
+    }
 
 
 } //end class
