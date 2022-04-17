@@ -22,11 +22,13 @@ public class PlayerPrimaryActionState: AbstractPlayerState
             delay = 1f;
             timer = 1.5f;
         }
+        context.rb.constraints = RigidbodyConstraints.FreezeAll;
     }
 
     public override void Exit()
     {
         context.animator.SetBool("PrimaryAction", false);
+        context.rb.constraints = RigidbodyConstraints.FreezeRotation;
     }
 
     public override void UpdateState()
@@ -63,6 +65,8 @@ public class PlayerPrimaryActionState: AbstractPlayerState
                 var treeScript = hit.gameObject.GetComponentInParent<TreeScript>();
                 if(treeScript != null && treeScript.Chopped)
                 {
+                    context.wandParticles.Play();
+                    SFXManager.instance.PlayOneShot(0);
                     //Enter minigame
                     context.growthTarget = treeScript;
                     context.ChangeState(new SpiritGrowState());                   
@@ -73,7 +77,6 @@ public class PlayerPrimaryActionState: AbstractPlayerState
 
     private void LumberjackAction()
     {
-        context.rb.velocity = Vector3.zero;
         var hits = Physics.OverlapBox(
             context.actionCollider.bounds.center,
             context.actionCollider.bounds.extents,

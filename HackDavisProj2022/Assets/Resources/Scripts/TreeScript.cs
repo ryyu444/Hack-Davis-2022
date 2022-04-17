@@ -9,6 +9,10 @@ using UnityEngine;
 /// </summary>
 public class TreeScript : MonoBehaviour
 {
+
+    public static int treesCut = 0;
+    public static int treesHealed = 0;
+
     public GameObject mainTreeSegment;
     private Vector3 mainTreeInitPos;
     private Quaternion mainTreeInitRot;
@@ -16,6 +20,11 @@ public class TreeScript : MonoBehaviour
     public GameObject[] cutSegments;
 
     public MeshRenderer[] toRegrow;
+
+    public AudioSource source;
+    public AudioClip chopSFX;
+    public AudioClip woodSnapSFX;
+    public AudioClip regrowSFX;
 
     private int chopState = 0;
 
@@ -65,17 +74,28 @@ public class TreeScript : MonoBehaviour
         chopState++;
         if (ChangeCutState(chopState,dir))
         {
+            treesCut++;
             //Release da treeeeee
+            source.PlayOneShot(chopSFX);
+            StartCoroutine(Corout_SnapSFX());
             mainTreeSegment.GetComponent<Rigidbody>().isKinematic = false;
             GetComponentInChildren<ParticleSystem>().Play();
             chopped = true;
         }
     }
 
+    private IEnumerator Corout_SnapSFX()
+    {
+        yield return new WaitForSeconds(0.35f);
+        source.PlayOneShot(woodSnapSFX);
+    }
+
     public void StartRegrowth()
     {
         foreach (var v in toRegrow)
             v.gameObject.SetActive(true);
+        treesHealed++;
+        source.PlayOneShot(regrowSFX);
         StartCoroutine(Corout_Regrow());
     }
 

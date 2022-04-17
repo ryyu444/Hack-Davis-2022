@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class InputManager : MonoBehaviour
 {
@@ -21,11 +22,11 @@ public class InputManager : MonoBehaviour
         {
             inputInfo.jumpPressedEvent?.Invoke();
         }
-        if(Input.GetMouseButton(0))
+        if(Input.GetMouseButton(0) && !EventSystem.current.IsPointerOverGameObject())
         {
             inputInfo.LMBPressedEvent?.Invoke();
         }
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButton(1) && !EventSystem.current.IsPointerOverGameObject())
         {
             inputInfo.RMBPressedEvent?.Invoke();
         }
