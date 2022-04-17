@@ -66,6 +66,7 @@ public class PlayerPrimaryActionState: AbstractPlayerState
                 if(treeScript != null && treeScript.Chopped)
                 {
                     context.wandParticles.Play();
+                    SFXManager.instance.PlayOneShot(0);
                     //Enter minigame
                     context.growthTarget = treeScript;
                     context.ChangeState(new SpiritGrowState());                   

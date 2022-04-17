@@ -17,6 +17,11 @@ public class TreeScript : MonoBehaviour
 
     public MeshRenderer[] toRegrow;
 
+    public AudioSource source;
+    public AudioClip chopSFX;
+    public AudioClip woodSnapSFX;
+    public AudioClip regrowSFX;
+
     private int chopState = 0;
 
     public bool startChopped;
@@ -66,10 +71,18 @@ public class TreeScript : MonoBehaviour
         if (ChangeCutState(chopState,dir))
         {
             //Release da treeeeee
+            source.PlayOneShot(chopSFX);
+            StartCoroutine(Corout_SnapSFX());
             mainTreeSegment.GetComponent<Rigidbody>().isKinematic = false;
             GetComponentInChildren<ParticleSystem>().Play();
             chopped = true;
         }
+    }
+
+    private IEnumerator Corout_SnapSFX()
+    {
+        yield return new WaitForSeconds(0.35f);
+        source.PlayOneShot(woodSnapSFX);
     }
 
     public void StartRegrowth()
@@ -81,6 +94,7 @@ public class TreeScript : MonoBehaviour
 
     private IEnumerator Corout_Regrow()
     {
+        source.PlayOneShot(regrowSFX);
         mainTreeSegment.GetComponent<Rigidbody>().isKinematic = true;
         mainTreeSegment.transform.position = mainTreeInitPos;
         mainTreeSegment.transform.rotation = mainTreeInitRot;
