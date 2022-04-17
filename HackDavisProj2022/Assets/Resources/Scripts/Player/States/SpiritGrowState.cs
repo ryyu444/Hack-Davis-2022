@@ -10,9 +10,6 @@ public class SpiritGrowState : AbstractPlayerState
         base.Enter(context);
         //Create Minigame context
         SceneManager.LoadSceneAsync(2,LoadSceneMode.Additive);
-        minigameManager = GameObject.FindObjectOfType<GameManager>();
-        minigameManager.OnWinEvent += OnWin;
-        minigameManager.OnLoseEvent += OnLose;
     }
 
     public override void Exit()
@@ -21,9 +18,17 @@ public class SpiritGrowState : AbstractPlayerState
         minigameManager.OnLoseEvent -= OnLose;
     }
 
+    private bool subscribed = false;
     public override void UpdateState()
     {
         context.rb.velocity = Vector3.zero;
+        minigameManager = GameObject.FindObjectOfType<GameManager>();
+        if(minigameManager != null && !subscribed)
+        {
+            subscribed = true;
+            minigameManager.OnWinEvent += OnWin;
+            minigameManager.OnLoseEvent += OnLose;
+        }
     }
 
     public void OnWin()
