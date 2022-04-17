@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 335293662}
   - component: {fileID: 335293661}
   - component: {fileID: 335293663}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Game Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -299,7 +299,7 @@ GameObject:
   - component: {fileID: 764868029}
   - component: {fileID: 764868031}
   - component: {fileID: 764868030}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Win Screen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -436,7 +436,7 @@ GameObject:
   - component: {fileID: 957163467}
   - component: {fileID: 957163466}
   - component: {fileID: 957163465}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: EventSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -504,7 +504,7 @@ GameObject:
   - component: {fileID: 1083191113}
   - component: {fileID: 1083191112}
   - component: {fileID: 1083191111}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -643,7 +643,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1024
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -714,7 +714,7 @@ GameObject:
   - component: {fileID: 2081026658}
   - component: {fileID: 2081026660}
   - component: {fileID: 2081026659}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Lose Screen
   m_TagString: Untagged
   m_Icon: {fileID: 0}

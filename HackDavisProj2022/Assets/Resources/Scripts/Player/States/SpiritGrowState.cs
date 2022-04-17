@@ -16,7 +16,7 @@ public class SpiritGrowState : AbstractPlayerState
     IEnumerator SceneLoad()
     {
         yield return new WaitForSeconds(1.5f);
-        SceneManager.LoadSceneAsync(2, LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync(3, LoadSceneMode.Additive);
     }
 
     public override void Exit()
@@ -46,7 +46,7 @@ public class SpiritGrowState : AbstractPlayerState
     private IEnumerator Corout_OnWin()
     {
         yield return new WaitForSeconds(2.5f);
-        SceneManager.UnloadSceneAsync(2);
+        SceneManager.UnloadSceneAsync(3);
         context.growthTarget.StartRegrowth();
         context.ChangeState(new PlayerGroundedState());
     }
@@ -59,7 +59,7 @@ public class SpiritGrowState : AbstractPlayerState
     private IEnumerator Corout_OnLose()
     {
         yield return new WaitForSeconds(2.5f);
-        SceneManager.UnloadSceneAsync(2);
+        SceneManager.UnloadSceneAsync(3);
         context.ChangeState(new PlayerGroundedState());
     }
 }
