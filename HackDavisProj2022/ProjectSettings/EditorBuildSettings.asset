@@ -8,7 +8,10 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
+  - enabled: 0
+    path: Assets/Scenes/MainMenu.unity
+    guid: 75c0ca2d386a2e048b7740e2ff3d3f80
+  - enabled: 0
     path: Assets/Scenes/MainScenes/LumberJackMainScene.unity
     guid: cb139187a53c6c7439e71d475e9374a4
   - enabled: 1
