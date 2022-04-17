@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int _winCondition = 64;
 
     [SerializeField] private GameObject _winScreen,_loseScreen;
+    public ParticleSystem effect; //<- drag particle system here in Inspector
+    bool effectStarted = false;
 
     private List<Node> _nodes;
     private List<Block> _blocks;
@@ -49,10 +51,14 @@ public class GameManager : MonoBehaviour
           break;
         case GameState.Win:
           _winScreen.SetActive(true);
+          effectStarted = true;
+          effect.Play();
           OnWinEvent?.Invoke();
           break;
         case GameState.Lose:
           _loseScreen.SetActive(true);
+          effectStarted = true;
+          effect.Play();
           OnLoseEvent?.Invoke();
           break;
 
