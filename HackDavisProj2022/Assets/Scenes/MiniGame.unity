@@ -159,17 +159,17 @@ MonoBehaviour:
   _boardPrefab: {fileID: 6351898582973938592, guid: d39edc2fd52034d4996a76c96f735f91, type: 3}
   _types:
   - Value: 2
-    color: {r: 0, g: 0, b: 0, a: 0}
+    sprite: {fileID: 21300000, guid: 7946764e1fb655e4d9dd20592ff75036, type: 3}
   - Value: 4
-    color: {r: 0, g: 0, b: 0, a: 0}
+    sprite: {fileID: 21300000, guid: db380746498775a419a3d58dff19182f, type: 3}
   - Value: 8
-    color: {r: 0, g: 0, b: 0, a: 0}
+    sprite: {fileID: 21300000, guid: be197a4853fabc7428b88d73be36e42d, type: 3}
   - Value: 16
-    color: {r: 0, g: 0, b: 0, a: 0}
+    sprite: {fileID: 21300000, guid: ae7f7dde310b8bc44b4ce0cecfdb694b, type: 3}
   - Value: 32
-    color: {r: 0, g: 0, b: 0, a: 0}
+    sprite: {fileID: 21300000, guid: 3f8b3f660c56e554dbf401158f061436, type: 3}
   - Value: 64
-    color: {r: 0, g: 0, b: 0, a: 0}
+    sprite: {fileID: 21300000, guid: c05047223b8f48c4689a8887f781fe45, type: 3}
   _travelTime: 0.2
   _winCondition: 64
   _winScreen: {fileID: 764868028}
