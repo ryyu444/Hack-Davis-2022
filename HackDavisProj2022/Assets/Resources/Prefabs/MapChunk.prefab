@@ -112,6 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   floorMesh: {fileID: 947232449051638845}
+  parent: {fileID: 947232449051638844}
   width: 25
   height: 25
   quadSize: 4

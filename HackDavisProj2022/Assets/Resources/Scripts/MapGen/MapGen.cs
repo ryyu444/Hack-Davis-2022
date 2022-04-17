@@ -103,8 +103,8 @@ public class MapGen : MonoBehaviour
 
         plane.RecalculateNormals();
         plane.RecalculateTangents();
-        Destroy(floorMesh.mesh);
-        floorMesh.mesh = plane;
+        DestroyImmediate(floorMesh.sharedMesh);
+        floorMesh.sharedMesh = plane;
         UpdateCollider();
         return generatedItems;
     }

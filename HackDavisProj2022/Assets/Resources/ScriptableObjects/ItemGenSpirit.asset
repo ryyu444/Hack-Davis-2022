@@ -16,7 +16,7 @@ MonoBehaviour:
   - item: {fileID: 7727794443832589892, guid: 8ba60a161ce128c488f9553f5adf9f5c, type: 3}
     range: {x: 500, y: 502}
     offset: {x: 0, y: 0.8, z: 0}
-  - item: {fileID: 2501736434026043021, guid: 8496418e425478049bd1b3c82996e77d, type: 3}
+  - item: {fileID: 2501736434026043021, guid: baa3dc269ddf06d4cbf39d42d51dc4ab, type: 3}
     range: {x: 0, y: 25}
     offset: {x: 0, y: 0, z: 0}
   - item: {fileID: 2437806963544562761, guid: dc616425c697d0c44a5a195044087510, type: 3}
