@@ -15,7 +15,9 @@ public class Block : MonoBehaviour
 
     public void Init(BlockType type) {
       Value = type.Value;
-      _renderer.color = type.color;
+    //  _renderer.color = type.color;
+      _renderer.sprite = type.sprite;
+
       _text.text = type.Value.ToString();
     }
 
