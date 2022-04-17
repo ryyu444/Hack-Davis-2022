@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// funny proc gen
+/// dont look at the mesh generation its some scuffed ass shit
+/// this is what happens when you dont google code and try to do stupid shit on your own
+/// </summary>
 [ExecuteInEditMode]
 public class MapGen : MonoBehaviour
 {
@@ -9,14 +14,36 @@ public class MapGen : MonoBehaviour
     public int width;
     public int height;
     public float quadSize = 0.2f;
+    public float colorAmpl;
+
+    public NoiseOctaveScriptableObject noiseSettings;
+
+
+    private float CalculateNoise(Vector2 pos)
+    {
+        float result = 0f;
+        foreach(var octave in noiseSettings.noiseOctaves)
+        {
+            Vector2 coords = octave.frequency * pos + octave.offset;
+            float raw = Mathf.PerlinNoise(coords.x, coords.y) - 0.5f;
+            result += Mathf.Pow(raw * octave.amplitude,octave.exponent);
+        }
+        return result;
+    }
 
     [ContextMenu("MakePlane")]
+    public void GenerateTesselatedPlane()
+    {
+        GenerateTesselatedPlane(Vector3.zero);
+    }
+
     public void GenerateTesselatedPlane(Vector3 position)
     {
         var plane = new Mesh();
 
         int vSize = (width + 1) * (height + 1);
         Vector3[] verts = new Vector3[vSize];
+        Color[] clrs = new Color[vSize];
         Vector2[] uvs = new Vector2[vSize];
         //Vertices
         for(int z= 0;z <= height;z++)
@@ -25,17 +52,20 @@ public class MapGen : MonoBehaviour
             {
                 var basePos = position + new Vector3(x * quadSize, 0, z * quadSize);
                 //Displacement
-                float freq = 0.05f;
-                float ampl = 7;
-                float rawNoise = Mathf.PerlinNoise(freq * basePos.x, freq * basePos.z) - 0.5f;
-                basePos += ampl * Vector3.up * rawNoise;
-                //
+
+                basePos += Vector3.up * CalculateNoise(new Vector2(basePos.x, basePos.z));
+                //colors
+                float r = CalculateNoise(new Vector2(basePos.x, basePos.z) + new Vector2(100.5f,100.5f));
+                float g = CalculateNoise(new Vector2(basePos.x, basePos.z) + new Vector2(10.5f,100.5f));
+                float b = CalculateNoise(new Vector2(basePos.x, basePos.z) + new Vector2(100.5f,10.5f));
+                clrs[z * (width + 1) + x] = new Color(colorAmpl * r/255, colorAmpl * g / 255, colorAmpl * b / 255);
                 verts[z * (width + 1) + x] = basePos;
                 uvs[z * (width + 1) + x] = new Vector2(x / width, z / height);
             }
         }
         plane.vertices = verts;
         plane.uv = uvs;
+        plane.colors = clrs;
         //Tris
         int[] tris = new int[width * height * 6];
         int counter = 0;

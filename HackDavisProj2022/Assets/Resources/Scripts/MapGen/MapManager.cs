@@ -35,6 +35,19 @@ public class MapManager : MonoBehaviour
             currentStandingChunk = newStandingChunk;
             RegenerateChunks(-diff);
         }
+
+        if (Time.frameCount % 10 == 0 && createQueue.Count > 0)
+        {
+            while(true)
+            {
+                var toRender = createQueue.Dequeue();
+                if(toRender.Item2 != null)
+                {
+                    toRender.Item2.GenerateTesselatedPlane(toRender.Item1);
+                    break;
+                }
+            }
+        }
     }
 
     private void ShiftColumn(int from,int to)
@@ -118,6 +131,8 @@ public class MapManager : MonoBehaviour
 
     }
 
+    private Queue<(Vector3 pos,MapGen)> createQueue = new Queue<(Vector3 pos, MapGen)>();
+
     private GameObject CreateChunk(Vector2Int gridPos)
     {
         var newChunk = Instantiate(mapChunkPrefab,transform);
@@ -126,7 +141,7 @@ public class MapManager : MonoBehaviour
         mapgen.height = chunkWidth + 1;
         mapgen.quadSize = vertSize;
         Vector3 position = new Vector3(gridPos.x * chunkSize, 0, gridPos.y * chunkSize);
-        mapgen.GenerateTesselatedPlane(position);
+        createQueue.Enqueue((position, mapgen));
         return newChunk;
     }
 
