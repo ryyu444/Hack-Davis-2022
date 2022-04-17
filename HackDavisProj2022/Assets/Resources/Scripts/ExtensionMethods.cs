@@ -27,6 +27,23 @@ public static class ExtensionMethods
             movementVector.normalized.ToXZPlane() *
             speed);
 
-        target.velocity = new Vector3(moveVec.x, target.velocity.y, moveVec.z);
+        target.velocity = (new Vector3(moveVec.x, target.velocity.y, moveVec.z));
+    }
+
+    public static void RotateTowardsVelocity(this Transform transform, Rigidbody rb,float maxTurnAngle,bool negate = false, float offset = 0)
+    {
+        float current = transform.eulerAngles.y;
+        float target = Mathf.Rad2Deg*Mathf.Atan2(rb.velocity.z, rb.velocity.x);
+        if (negate)
+            target *= -1;
+        target += offset;
+        float diff = Mathf.DeltaAngle(current, target);
+        float newRot = target;
+        if(Mathf.Abs(diff) > maxTurnAngle)
+        {
+            newRot = current + maxTurnAngle * Mathf.Sign(diff);
+        }
+
+        transform.eulerAngles = new Vector3(transform.eulerAngles.x, newRot, transform.eulerAngles.z);
     }
 }

@@ -8,11 +8,12 @@ public class PlayerAxeSwingState: AbstractPlayerState
     public override void Enter(PlayerController context)
     {
         base.Enter(context);
+        context.animator.SetBool("Slashing", true);
     }
 
     public override void Exit()
     {
-
+        context.animator.SetBool("Slashing", false);
     }
 
     public override void UpdateState()

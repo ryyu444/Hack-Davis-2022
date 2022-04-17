@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public ThirdPersonCameraController cameraController;
     public SphereCollider groundedCollider;
     public Rigidbody rb;
+    public Animator animator;
     public LayerMask groundedMask;
     
 

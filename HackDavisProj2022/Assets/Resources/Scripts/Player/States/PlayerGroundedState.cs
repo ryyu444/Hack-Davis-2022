@@ -9,12 +9,14 @@ public class PlayerGroundedState : AbstractPlayerState
         base.Enter(context);
         context.inputInfo.jumpPressedEvent += Jump;
         context.inputInfo.LMBPressedEvent += SwingAxe;
+        context.animator.SetBool("Grounded", true);
     }
 
     public override void Exit()
     {
         context.inputInfo.jumpPressedEvent -= Jump;
         context.inputInfo.LMBPressedEvent -= SwingAxe;
+        context.animator.SetBool("Grounded", false);
     }
 
     public void Jump()
@@ -30,7 +32,9 @@ public class PlayerGroundedState : AbstractPlayerState
     public override void UpdateState()
     {
         context.rb.MoveWithRotation(context.cameraController.rotation, context.inputInfo.movementVector, 10f);
-        
+        context.animator.SetBool("Moving", context.rb.velocity.magnitude > 0.2f);
+        if(context.animator.GetBool("Moving"))
+            context.animator.transform.RotateTowardsVelocity(context.rb, 360f * Time.deltaTime,true,90f);
         if(!context.IsGrounded())
         {
             context.ChangeState(new PlayerAirState());
