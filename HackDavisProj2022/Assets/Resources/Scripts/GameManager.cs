@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     private BlockType GetBlockTypeByValue(int value) => _types.First(t => t.Value == value);
 
     public System.Action OnWinEvent;
+    public System.Action OnLoseEvent;
 
     void Start(){
       ChangeState(GameState.GenerateLevel);
@@ -48,9 +49,11 @@ public class GameManager : MonoBehaviour
           break;
         case GameState.Win:
           _winScreen.SetActive(true);
+          OnWinEvent?.Invoke();
           break;
         case GameState.Lose:
           _loseScreen.SetActive(true);
+          OnLoseEvent?.Invoke();
           break;
 
         default:
@@ -201,12 +204,6 @@ public class GameManager : MonoBehaviour
     Node GetNodeAtPosition(Vector2 pos) {
       return _nodes.FirstOrDefault(n=> n.Pos == pos);
     }
-
-    private void OnDestroy()
-    {
-        OnWinEvent?.Invoke();
-    }
-
 
 } //end class
 

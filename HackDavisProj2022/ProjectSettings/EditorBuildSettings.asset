@@ -8,4 +8,13 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/MainScenes/LumberJackMainScene.unity
+    guid: cb139187a53c6c7439e71d475e9374a4
+  - enabled: 1
+    path: Assets/Scenes/MainScenes/SpiritMainScene.unity
+    guid: 4b6f96924f1db284ca1dc5d638c5be8b
+  - enabled: 1
+    path: Assets/Scenes/MiniGame.unity
+    guid: 85843d5b4c4422341a9ab3363e3430fd
   m_configObjects: {}

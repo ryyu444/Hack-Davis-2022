@@ -157,6 +157,7 @@ MonoBehaviour:
   renderDistance: 2
   tracked: {fileID: 820625508}
   mapChunkPrefab: {fileID: 947232449051638840, guid: d47f6234884811c418b7fed81c2187f2, type: 3}
+  itemParent: {fileID: 868929807}
   itemSpawn: {fileID: 11400000, guid: 61769eaac6a899f4d98dfcd0baa66424, type: 2}
   genData: {fileID: 11400000, guid: 4919373e0f8808f4a80f982e648affcd, type: 2}
 --- !u!4 &55153792
@@ -299,6 +300,37 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
+--- !u!1 &868929806
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 868929807}
+  m_Layer: 0
+  m_Name: ItemContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &868929807
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 868929806}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1790534663 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3807693904121865198, guid: 633c1855f96768045a1c55fcdf504c08, type: 3}

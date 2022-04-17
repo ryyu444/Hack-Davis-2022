@@ -13,6 +13,7 @@ public class MapManager : MonoBehaviour
 
     public GameObject tracked;
     public GameObject mapChunkPrefab;
+    public Transform itemParent;
 
     private GameObject[,] managedChunks;
     private Vector2Int currentStandingChunk = Vector2Int.zero;
@@ -178,6 +179,7 @@ public class MapManager : MonoBehaviour
         mapgen.quadSize = vertSize;
         mapgen.itemGenSettings = itemSpawn;
         mapgen.noiseSettings = genData;
+        mapgen.parent = itemParent;
         Vector3 position = new Vector3(gridPos.x * chunkSize, 0, gridPos.y * chunkSize);
         createQueue.Enqueue((position, mapgen,gridPos));
         return newChunk;

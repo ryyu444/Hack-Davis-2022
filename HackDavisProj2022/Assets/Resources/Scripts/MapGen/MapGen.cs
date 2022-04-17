@@ -11,6 +11,7 @@ using UnityEngine;
 public class MapGen : MonoBehaviour
 {
     public MeshFilter floorMesh;
+    public Transform parent;
     public int width;
     public int height;
     public float quadSize = 0.2f;
@@ -39,7 +40,7 @@ public class MapGen : MonoBehaviour
         {
             if(seed >= v.range.x && seed <= v.range.y)
             {
-                list.Add(Instantiate(v.item, position + v.offset, Quaternion.identity));
+                list.Add(Instantiate(v.item, position + v.offset, Quaternion.identity,parent));
             }
         }
         return list;
@@ -102,6 +103,7 @@ public class MapGen : MonoBehaviour
 
         plane.RecalculateNormals();
         plane.RecalculateTangents();
+        Destroy(floorMesh.mesh);
         floorMesh.mesh = plane;
         UpdateCollider();
         return generatedItems;
