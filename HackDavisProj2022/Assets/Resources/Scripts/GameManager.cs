@@ -7,6 +7,9 @@ using DG.Tweening;
 
 public class GameManager : MonoBehaviour
 {
+    public AudioSource source;
+    public AudioClip actionSFX;
+
     [SerializeField] private int _width = 4;
     [SerializeField] private int _height = 4;
     [SerializeField] private Node _nodePrefab;
@@ -76,15 +79,15 @@ public class GameManager : MonoBehaviour
         Shift(Vector2.left);
       }
 
-      if(Input.GetKeyDown(KeyCode.RightArrow)) {
+      else if(Input.GetKeyDown(KeyCode.RightArrow)) {
         Shift(Vector2.right);
       }
 
-      if(Input.GetKeyDown(KeyCode.UpArrow)) {
+      else if (Input.GetKeyDown(KeyCode.UpArrow)) {
         Shift(Vector2.up);
       }
 
-      if(Input.GetKeyDown(KeyCode.DownArrow)) {
+      else if(Input.GetKeyDown(KeyCode.DownArrow)) {
         Shift(Vector2.down);
       }
     }
@@ -96,13 +99,13 @@ public class GameManager : MonoBehaviour
       _blocks = new List<Block>();
       for (int x = 0; x < _width; x++) {
         for(int y = 0; y < _height; y++) {
-          var node = Instantiate(_nodePrefab, new Vector2(x,y), Quaternion.identity,transform);
+          var node = Instantiate(_nodePrefab, new Vector3(x,y,0) + transform.position, Quaternion.identity,transform);
           _nodes.Add(node);
         }
       }
 
       var center = new Vector2((float) _width /2 - 0.5f,(float) _height / 2 -0.5f);
-      var board =  Instantiate(_boardPrefab, center, Quaternion.identity, transform);
+      var board =  Instantiate(_boardPrefab, (Vector3)center + transform.position, Quaternion.identity, transform);
       board.size = new Vector2(_width, _height);
 
       Camera.main.transform.position = new Vector3(center.x, center.y,-10);
@@ -138,6 +141,7 @@ public class GameManager : MonoBehaviour
     }
 
     void Shift(Vector2 dir) {
+        source.PlayOneShot(actionSFX);
       ChangeState(GameState.Moving);
 
       var orderedBlocks = _blocks.OrderBy(b=>b.Pos.x).ThenBy(b=>b.Pos.y).ToList();

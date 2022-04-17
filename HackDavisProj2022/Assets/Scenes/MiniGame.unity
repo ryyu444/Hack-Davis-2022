@@ -177,6 +177,7 @@ MonoBehaviour:
   _winCondition: 64
   _winScreen: {fileID: 764868028}
   _loseScreen: {fileID: 2081026657}
+  effect: {fileID: 0}
 --- !u!4 &335293662
 Transform:
   m_ObjectHideFlags: 0
