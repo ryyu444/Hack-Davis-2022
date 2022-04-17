@@ -30,7 +30,7 @@ public static class ExtensionMethods
         target.velocity = (new Vector3(moveVec.x, target.velocity.y, moveVec.z));
     }
 
-    public static void RotateTowardsVelocity(this Transform transform, Rigidbody rb,float maxTurnAngle,bool negate = false, float offset = 0)
+    public static void RotateTowardsVelocity(this Transform transform, Rigidbody rb,float lerpVal,bool negate = false, float offset = 0)
     {
         float current = transform.eulerAngles.y;
         float target = Mathf.Rad2Deg*Mathf.Atan2(rb.velocity.z, rb.velocity.x);
@@ -38,12 +38,7 @@ public static class ExtensionMethods
             target *= -1;
         target += offset;
         float diff = Mathf.DeltaAngle(current, target);
-        float newRot = target;
-        if(Mathf.Abs(diff) > maxTurnAngle)
-        {
-            newRot = current + maxTurnAngle * Mathf.Sign(diff);
-        }
-
+        float newRot = Mathf.Lerp(current, current + diff, lerpVal);
         transform.eulerAngles = new Vector3(transform.eulerAngles.x, newRot, transform.eulerAngles.z);
     }
 }
