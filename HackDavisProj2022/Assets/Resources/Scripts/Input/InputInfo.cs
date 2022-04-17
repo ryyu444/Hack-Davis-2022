@@ -13,7 +13,7 @@ public class InputInfo : ScriptableObject
     public System.Action LMBPressedEvent;
     public System.Action RMBPressedEvent;
 
-    private void OnEnable()
+    private void OnDestroy()
     {
         jumpPressedEvent = null;
         LMBPressedEvent = null;
