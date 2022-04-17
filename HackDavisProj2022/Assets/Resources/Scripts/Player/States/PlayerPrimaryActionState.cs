@@ -61,7 +61,7 @@ public class PlayerPrimaryActionState: AbstractPlayerState
         {
             if (hit.gameObject.CompareTag("TreeStump"))
             {
-                TimeManager.instance.SlowTime(0, 0.1f);
+                TimeManager.instance.SlowTime(0.15f, 0.1f);
                 var treeScript = hit.gameObject.GetComponentInParent<TreeScript>();
                 if(treeScript != null && treeScript.Chopped)
                 {
