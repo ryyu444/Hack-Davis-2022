@@ -7,6 +7,9 @@ using DG.Tweening;
 
 public class GameManager : MonoBehaviour
 {
+    public AudioSource source;
+    public AudioClip actionSFX;
+
     [SerializeField] private int _width = 4;
     [SerializeField] private int _height = 4;
     [SerializeField] private Node _nodePrefab;
@@ -132,6 +135,8 @@ public class GameManager : MonoBehaviour
     }
 
     void Shift(Vector2 dir) {
+        source.PlayOneShot(actionSFX);
+
       ChangeState(GameState.Moving);
 
       var orderedBlocks = _blocks.OrderBy(b=>b.Pos.x).ThenBy(b=>b.Pos.y).ToList();
