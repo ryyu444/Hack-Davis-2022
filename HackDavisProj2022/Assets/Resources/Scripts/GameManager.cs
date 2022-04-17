@@ -90,13 +90,13 @@ public class GameManager : MonoBehaviour
       _blocks = new List<Block>();
       for (int x = 0; x < _width; x++) {
         for(int y = 0; y < _height; y++) {
-          var node = Instantiate(_nodePrefab, new Vector2(x,y), Quaternion.identity);
+          var node = Instantiate(_nodePrefab, new Vector2(x,y), Quaternion.identity,transform);
           _nodes.Add(node);
         }
       }
 
       var center = new Vector2((float) _width /2 - 0.5f,(float) _height / 2 -0.5f);
-      var board =  Instantiate(_boardPrefab, center, Quaternion.identity);
+      var board =  Instantiate(_boardPrefab, center, Quaternion.identity, transform);
       board.size = new Vector2(_width, _height);
 
       Camera.main.transform.position = new Vector3(center.x, center.y,-10);
@@ -125,7 +125,7 @@ public class GameManager : MonoBehaviour
     }
 
     void SpawnBlock(Node node, int value) {
-      var block = Instantiate(_blockPrefab, node.Pos, Quaternion.identity);
+      var block = Instantiate(_blockPrefab, node.Pos, Quaternion.identity, transform);
       block.Init(GetBlockTypeByValue(value));
       block.SetBlock(node);
       _blocks.Add(block);
