@@ -17,6 +17,13 @@ public class MapManager : MonoBehaviour
     private GameObject[,] managedChunks;
     private Vector2Int currentStandingChunk = Vector2Int.zero;
 
+    public ItemGenScriptableObject itemSpawn;
+    public NoiseOctaveScriptableObject genData;
+
+    //item managing
+    public Dictionary<Vector2Int, List<GameObject>> itemLoad = new Dictionary<Vector2Int, List<GameObject>>();
+    private float maxEntries = 500f;
+
     private void Awake()
     {
         chunkSize = vertSize * chunkWidth;
@@ -41,12 +48,31 @@ public class MapManager : MonoBehaviour
             while(true)
             {
                 var toRender = createQueue.Dequeue();
-                if(toRender.Item2 != null)
+                SetActiveItemSet(toRender.Item3, true);
+                if (toRender.Item2 != null)
                 {
-                    toRender.Item2.GenerateTesselatedPlane(toRender.Item1);
+                    bool itemSetExists = itemLoad.ContainsKey(toRender.Item3);
+                    if (itemLoad.Count > maxEntries || itemSetExists)
+                    {
+                        toRender.Item2.GenerateTesselatedPlane(toRender.Item1, false);
+                    }
+                    else
+                    {
+                        itemLoad.Add(toRender.Item3,toRender.Item2.GenerateTesselatedPlane(toRender.Item1, true));
+                    }
                     break;
                 }
             }
+        }
+    }
+
+    private void SetActiveItemSet(Vector2Int key,bool set)
+    {
+        if (!itemLoad.ContainsKey(key))
+            return;
+        foreach(var item in itemLoad[key])
+        {
+            item.SetActive(set);
         }
     }
 
@@ -68,13 +94,20 @@ public class MapManager : MonoBehaviour
         }
     }
 
+    private Vector2Int ManagedChunksToGrid(Vector2Int center, int x, int z)
+    {
+        return center + new Vector2Int(x - renderDistance, z - renderDistance);
+    }
+
     private void RegenerateChunks(Vector2Int offsetDirection)
     {
+        Vector2Int previousPos = currentStandingChunk + offsetDirection;
         if(offsetDirection.x == 1)
         {
             for (int i = 0; i < renderedSize; i++)
             {
                 Destroy(managedChunks[renderedSize - 1, i]);
+                SetActiveItemSet(ManagedChunksToGrid(previousPos,renderedSize - 1,i), false);
             }
             for (int i = renderedSize - 2; i >= 0; i--)
             {
@@ -86,6 +119,7 @@ public class MapManager : MonoBehaviour
             for (int i = 0; i < renderedSize; i++)
             {
                 Destroy(managedChunks[0, i]);
+                SetActiveItemSet(ManagedChunksToGrid(previousPos,0, i), false);
             }
             for (int i = 1; i < renderedSize; i++)
             {
@@ -98,6 +132,7 @@ public class MapManager : MonoBehaviour
             for (int i = 0; i < renderedSize; i++)
             {
                 Destroy(managedChunks[i,renderedSize - 1]);
+                SetActiveItemSet(ManagedChunksToGrid(previousPos, i, renderedSize - 1), false);
             }
             for (int i = renderedSize - 2; i >= 0; i--)
             {
@@ -109,6 +144,7 @@ public class MapManager : MonoBehaviour
             for (int i = 0; i < renderedSize; i++)
             {
                 Destroy(managedChunks[i, 0]);
+                SetActiveItemSet(ManagedChunksToGrid(previousPos, i, 0), false);
             }
             for (int i = 1; i < renderedSize; i++)
             {
@@ -131,7 +167,7 @@ public class MapManager : MonoBehaviour
 
     }
 
-    private Queue<(Vector3 pos,MapGen)> createQueue = new Queue<(Vector3 pos, MapGen)>();
+    private Queue<(Vector3 pos,MapGen,Vector2Int)> createQueue = new Queue<(Vector3 pos, MapGen,Vector2Int)>();
 
     private GameObject CreateChunk(Vector2Int gridPos)
     {
@@ -140,8 +176,10 @@ public class MapManager : MonoBehaviour
         mapgen.width = chunkWidth + 1;
         mapgen.height = chunkWidth + 1;
         mapgen.quadSize = vertSize;
+        mapgen.itemGenSettings = itemSpawn;
+        mapgen.noiseSettings = genData;
         Vector3 position = new Vector3(gridPos.x * chunkSize, 0, gridPos.y * chunkSize);
-        createQueue.Enqueue((position, mapgen));
+        createQueue.Enqueue((position, mapgen,gridPos));
         return newChunk;
     }
 

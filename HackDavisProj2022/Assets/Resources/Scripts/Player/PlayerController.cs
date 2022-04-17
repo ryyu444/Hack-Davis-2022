@@ -77,9 +77,5 @@ public class PlayerController : MonoBehaviour
         isLumberjack = toLumberjack;
         lumberJackController.gameObject.SetActive(toLumberjack);
         spiritController.gameObject.SetActive(!toLumberjack);
-        if (toLumberjack)
-        {
-            
-        }
     }
 }

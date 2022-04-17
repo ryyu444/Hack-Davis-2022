@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b46e9af5a5390f47957da6213085792, type: 3}
+  m_Name: ItemGenLumberjack
+  m_EditorClassIdentifier: 
+  itemGenData:
+  - item: {fileID: 7727794443832589892, guid: b5e2c4fd3cbc2c84f9006d4c58895710, type: 3}
+    range: {x: 500, y: 501}
+    offset: {x: 0, y: 0.8, z: 0}
+  - item: {fileID: 2501736434026043021, guid: 8496418e425478049bd1b3c82996e77d, type: 3}
+    range: {x: 0, y: 30}
+    offset: {x: 0, y: 0, z: 0}
+  - item: {fileID: 2437806963544562761, guid: dc616425c697d0c44a5a195044087510, type: 3}
+    range: {x: 101, y: 102}
+    offset: {x: 0, y: 0, z: 0}
