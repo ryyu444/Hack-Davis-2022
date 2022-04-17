@@ -10,18 +10,19 @@ public class SpiritGrowState : AbstractPlayerState
         base.Enter(context);
         //Create Minigame context
         SceneManager.LoadSceneAsync(2,LoadSceneMode.Additive);
+        context.rb.constraints = RigidbodyConstraints.FreezeAll;
     }
 
     public override void Exit()
     {
         minigameManager.OnWinEvent -= OnWin;
         minigameManager.OnLoseEvent -= OnLose;
+        context.rb.constraints = RigidbodyConstraints.FreezeRotation;
     }
 
     private bool subscribed = false;
     public override void UpdateState()
     {
-        context.rb.velocity = Vector3.zero;
         minigameManager = GameObject.FindObjectOfType<GameManager>();
         if(minigameManager != null && !subscribed)
         {
@@ -33,6 +34,12 @@ public class SpiritGrowState : AbstractPlayerState
 
     public void OnWin()
     {
+        context.StartCoroutine(Corout_OnWin());
+    }
+
+    private IEnumerator Corout_OnWin()
+    {
+        yield return new WaitForSeconds(2.5f);
         SceneManager.UnloadSceneAsync(2);
         context.growthTarget.StartRegrowth();
         context.ChangeState(new PlayerGroundedState());
@@ -40,6 +47,12 @@ public class SpiritGrowState : AbstractPlayerState
 
     public void OnLose()
     {
+        context.StartCoroutine(Corout_OnLose());        
+    }
+
+    private IEnumerator Corout_OnLose()
+    {
+        yield return new WaitForSeconds(2.5f);
         SceneManager.UnloadSceneAsync(2);
         context.ChangeState(new PlayerGroundedState());
     }
