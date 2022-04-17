@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NoiseOctaveScriptableObject : MonoBehaviour
+[CreateAssetMenu(menuName ="NoiseOctaveScriptableObject")]
+public class NoiseOctaveScriptableObject : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public List<NoiseOctave> noiseOctaves;
+}
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+[System.Serializable]
+public class NoiseOctave
+{
+    public float amplitude;
+    public float frequency;
+    public Vector2 offset;
+    public float exponent = 1;
 }
