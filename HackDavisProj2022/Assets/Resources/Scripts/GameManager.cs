@@ -208,7 +208,7 @@ public class GameManager : MonoBehaviour
 [Serializable]
 public struct BlockType {
   public int Value;
-  public Texture Image;
+  public Color color;
 }
 
 

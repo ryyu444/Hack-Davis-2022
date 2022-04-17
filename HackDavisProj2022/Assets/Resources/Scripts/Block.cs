@@ -15,7 +15,7 @@ public class Block : MonoBehaviour
 
     public void Init(BlockType type) {
       Value = type.Value;
-      _renderer.image = type.Image;
+      _renderer.color = type.color;
       _text.text = type.Value.ToString();
     }
 
