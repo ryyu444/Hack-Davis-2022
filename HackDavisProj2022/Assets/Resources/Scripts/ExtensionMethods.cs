@@ -14,6 +14,12 @@ public static class ExtensionMethods
         return new Vector3(vec.x, 0, vec.y);
     }
 
+    public static Vector2 RemoveY(this Vector3 vec)
+    {
+        vec.y = 0;
+        return vec;
+    }
+
     public static Quaternion NoXAxis(this Quaternion rot)
     {
         rot.eulerAngles = new Vector3(0,rot.eulerAngles.y, rot.eulerAngles.z);
