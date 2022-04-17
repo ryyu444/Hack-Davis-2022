@@ -79,15 +79,15 @@ public class GameManager : MonoBehaviour
         Shift(Vector2.left);
       }
 
-      if(Input.GetKeyDown(KeyCode.RightArrow)) {
+      else if(Input.GetKeyDown(KeyCode.RightArrow)) {
         Shift(Vector2.right);
       }
 
-      if(Input.GetKeyDown(KeyCode.UpArrow)) {
+      else if (Input.GetKeyDown(KeyCode.UpArrow)) {
         Shift(Vector2.up);
       }
 
-      if(Input.GetKeyDown(KeyCode.DownArrow)) {
+      else if(Input.GetKeyDown(KeyCode.DownArrow)) {
         Shift(Vector2.down);
       }
     }
@@ -142,7 +142,6 @@ public class GameManager : MonoBehaviour
 
     void Shift(Vector2 dir) {
         source.PlayOneShot(actionSFX);
-
       ChangeState(GameState.Moving);
 
       var orderedBlocks = _blocks.OrderBy(b=>b.Pos.x).ThenBy(b=>b.Pos.y).ToList();
