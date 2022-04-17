@@ -15,6 +15,9 @@ ModelImporter:
   - first:
       74: 3496040570958989425
     second: Armature|Win
+  - first:
+      74: -8205096169206773100
+    second: Head|Slash
   externalObjects: {}
   materials:
     materialImportMode: 2

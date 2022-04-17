@@ -26,7 +26,7 @@ public class PlayerGroundedState : AbstractPlayerState
 
     public void SwingAxe()
     {
-        context.ChangeState(new PlayerAxeSwingState());
+        context.ChangeState(new PlayerPrimaryActionState());
     }
 
     public override void UpdateState()

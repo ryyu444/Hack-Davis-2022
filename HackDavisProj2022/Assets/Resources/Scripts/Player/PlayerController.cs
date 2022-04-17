@@ -8,7 +8,19 @@ public class PlayerController : MonoBehaviour
     public ThirdPersonCameraController cameraController;
     public SphereCollider groundedCollider;
     public Rigidbody rb;
-    public Animator animator;
+
+    public Animator spiritController;
+    public Animator lumberJackController;
+    public bool isLumberjack = true;
+    public Animator animator
+    {
+        get
+        {
+            if (isLumberjack)
+                return lumberJackController;
+            return spiritController;
+        }
+    }
     public LayerMask groundedMask;
     
 
@@ -47,5 +59,22 @@ public class PlayerController : MonoBehaviour
         currentState?.Exit();
         currentState = newState;
         newState.Enter(this);
+    }
+
+    [ContextMenu("Switch Characters")]
+    public void ToggleCharacter()
+    {
+        SetCharacter(!isLumberjack);
+    }
+
+    public void SetCharacter(bool toLumberjack)
+    {
+        isLumberjack = toLumberjack;
+        lumberJackController.gameObject.SetActive(toLumberjack);
+        spiritController.gameObject.SetActive(!toLumberjack);
+        if (toLumberjack)
+        {
+            
+        }
     }
 }

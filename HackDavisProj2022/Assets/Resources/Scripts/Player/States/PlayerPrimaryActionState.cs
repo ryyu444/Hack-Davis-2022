@@ -2,18 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAxeSwingState: AbstractPlayerState
+public class PlayerPrimaryActionState: AbstractPlayerState
 {
-    private float timer = 1;
+    private float timer = 2;
     public override void Enter(PlayerController context)
     {
         base.Enter(context);
-        context.animator.SetBool("Slashing", true);
+        context.rb.velocity = Vector3.zero;
+        context.animator.SetBool("PrimaryAction", true);
     }
 
     public override void Exit()
     {
-        context.animator.SetBool("Slashing", false);
+        context.animator.SetBool("PrimaryAction", false);
     }
 
     public override void UpdateState()
